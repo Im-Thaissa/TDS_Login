@@ -1,13 +1,13 @@
-package br.umc.bookrats;
+package br.umc.tds;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookratsApplication {
+public class TDSApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookratsApplication.class, args);
+		SpringApplication.run(TDSApplication.class, args);
 	}
 
 }
