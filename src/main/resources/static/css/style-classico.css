@@ -49,11 +49,13 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
     outline: 3px solid var(--amber);
     outline-offset: 2px;
 }
 
+/* ===== Telas de autenticação (login / cadastro) ===== */
 
 .auth-shell {
     display: grid;
@@ -190,6 +192,23 @@ input:focus-visible {
 }
 
 .field input:focus {
+    outline: none;
+    border-bottom-color: var(--amber);
+}
+
+.field select {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--parchment-dark);
+    background: transparent;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--ink-text);
+    padding: 8px 2px;
+    transition: border-color .2s ease;
+}
+
+.field select:focus {
     outline: none;
     border-bottom-color: var(--amber);
 }
@@ -384,4 +403,54 @@ input:focus-visible {
     .main {
         padding: 40px 32px;
     }
+}
+.pending-list {
+    margin: 12px 0 28px;
+}
+
+.pending-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--parchment-dark);
+}
+
+.pending-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pending-info span {
+    font-size: 14px;
+    color: var(--muted-text);
+}
+
+.pending-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.pending-actions .btn-primary,
+.pending-actions .btn-danger {
+    width: auto;
+    padding: 8px 18px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background: transparent;
+    border: 1px solid var(--clay);
+    color: var(--clay);
+    border-radius: 999px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.btn-danger:hover {
+    background: var(--clay);
+    color: var(--parchment);
 }

@@ -1,4 +1,4 @@
-package br.umc.bookrats.core.config;
+package br.umc.tds.core.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ControllerAdvice;
