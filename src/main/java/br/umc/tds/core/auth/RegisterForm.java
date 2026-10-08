@@ -1,4 +1,4 @@
-package br.umc.bookrats.core.auth;
+package br.umc.tds.core.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -16,6 +16,9 @@ public class RegisterForm {
     @NotBlank(message = "A senha é obrigatória.")
     @Size(min = 8, message = "A senha precisa ter no mínimo 8 caracteres.")
     private String senha;
+
+    @NotBlank(message = "Selecione um perfil.")
+    private String role;
 
     public String getNome() {
         return nome;
@@ -39,5 +42,13 @@ public class RegisterForm {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

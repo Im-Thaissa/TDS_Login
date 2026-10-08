@@ -1,13 +1,16 @@
-package br.umc.bookrats.core.auth;
+package br.umc.tds.core.auth;
 
-import br.umc.bookrats.core.user.UserService;
+import br.umc.tds.core.user.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthController {
@@ -34,7 +37,7 @@ public class AuthController {
         }
 
         try {
-            userService.cadastrar(registerForm.getEmail(), registerForm.getSenha(), registerForm.getNome());
+            userService.cadastrar(registerForm.getEmail(), registerForm.getSenha(), registerForm.getNome(), registerForm.getRole());
         } catch (IllegalArgumentException e) {
             model.addAttribute("erro", e.getMessage());
             return "auth/cadastro";
@@ -44,7 +47,13 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String formularioLogin() {
+    public String formularioLogin(@RequestParam(required = false) String error, HttpSession session, Model model) {
+        if (error != null) {
+            Object ultimaExcecao = session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+            if (ultimaExcecao instanceof DisabledException) {
+                model.addAttribute("contaPendente", true);
+            }
+        }
         return "auth/login";
     }
 }
