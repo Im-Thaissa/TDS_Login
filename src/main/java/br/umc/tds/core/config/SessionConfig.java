@@ -1,4 +1,4 @@
-package br.umc.bookrats.core.config;
+package br.umc.tds.core.config;
 
 import org.mongodb.spring.session.config.annotation.web.http.EnableMongoHttpSession;
 import org.springframework.context.annotation.Configuration;

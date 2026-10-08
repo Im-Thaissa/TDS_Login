@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.1.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+		<relativePath/>	</parent>
 	<groupId>br.umc</groupId>
-	<artifactId>bookrats</artifactId>
+	<artifactId>TDS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BookRats</name>
-	<description>Sistema para leitores com login seguro</description>
+	<name>TDS</name>
+	<description>Sistema de login criado para o uso do projeto de PFC "Trilha do Saber" de forma segura, com perfis para plataforma educacional</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -28,6 +27,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-spring-session</artifactId>
+			<version>4.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
