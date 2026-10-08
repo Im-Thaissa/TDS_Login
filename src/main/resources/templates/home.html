@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Início — Trilha do Saber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{'/css/style-' + ${theme} + '.css'}">
 </head>
 <body>
+<div class="shell">
+    <aside class="sidebar">
+        <div>
+            <div class="sidebar__brand">
+                <h1>Trilha do Saber</h1>
+            </div>
+            <nav class="trail-nav">
+                <div class="trail-step" th:classappend="${#lists.contains(roles, 'ALUNO')} ? 'is-active'">Aluno</div>
+                <div class="trail-step" th:classappend="${#lists.contains(roles, 'PROFESSOR')} ? 'is-active'">Professor</div>
+                <div class="trail-step" th:classappend="${#lists.contains(roles, 'COORDENADOR')} ? 'is-active'">Coordenador</div>
+                <div class="trail-step" th:classappend="${#lists.contains(roles, 'ADMIN')} ? 'is-active'">Administrador</div>
+            </nav>
+        </div>
 
+        <div class="sidebar__user">
+            <span class="email" th:text="${email}"></span>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn-ghost" type="submit">Sair</button>
+            </form>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="content-card">
+            <p class="eyebrow">Início</p>
+            <h2>Bem-vindo de volta.</h2>
+            <p>Essa é sua página inicial na trilha. Em breve, aqui vão aparecer seus próximos passos.</p>
+        </div>
+    </main>
+</div>
 </body>
 </html>

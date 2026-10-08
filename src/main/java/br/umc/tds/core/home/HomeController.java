@@ -1,4 +1,4 @@
-package br.umc.bookrats.core.home;
+package br.umc.tds.core.home;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

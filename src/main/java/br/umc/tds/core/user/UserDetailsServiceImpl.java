@@ -1,4 +1,4 @@
-package br.umc.bookrats.core.user;
+package br.umc.tds.core.user;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,10 +26,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))
                 .collect(Collectors.toList());
 
+        boolean habilitado = user.isAtivo() && user.isAprovado();
+
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),
-                user.isAtivo(),
+                habilitado,
                 true, true, true,
                 authorities
         );
