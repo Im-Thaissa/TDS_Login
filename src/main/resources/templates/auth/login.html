@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - BookRats</title>
+</head>
+<body>
+<h1>Entrar</h1>
+
+<p th:if="${param.erro}" style="color: red;">E-mail ou senha incorretos.</p>
+<p th:if="${param.cadastroSucesso}" style="color: green;">Cadastro feito! Já pode entrar.</p>
+
+<form th:action="@{/login}" method="post">
+    <div>
+        <label>E-mail</label>
+        <input type="email" name="username">
+    </div>
+    <div>
+        <label>Senha</label>
+        <input type="password" name="senha">
+    </div>
+    <button type="submit">Entrar</button>
+</form>
+
+<a th:href="@{/cadastro}">Criar conta</a>
+</body>
+</html>
